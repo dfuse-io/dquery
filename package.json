@@ -13,7 +13,7 @@
   "scripts": {
     "build": "tsc",
     "prepublish": "yarn build",
-    "publish": "yarn publish --public"
+    "publish": "yarn publish --access public"
   },
   "dependencies": {
     "@dfuse/client": "^0.3.10",
