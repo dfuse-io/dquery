@@ -1,5 +1,5 @@
 {
-  "name": "dquery",
+  "name": "@dfuse/explore",
   "version": "1.0.0",
   "description": "common library for dfuse blockchain explorers",
   "main": "dist/lib/index.js",
@@ -7,11 +7,13 @@
   "files": [
     "dist/*"
   ],
-  "repository": "git@github.com:dfuse-io/dquery.git",
+  "repository": "https://github.com:dfuse-io/dquery.git",
   "author": "dliuproduction <dliuproduction@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "yarn build",
+    "publish": "yarn publish --public"
   },
   "dependencies": {
     "@dfuse/client": "^0.3.10",
