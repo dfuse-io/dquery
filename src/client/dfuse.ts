@@ -7,18 +7,20 @@ export const initializeDfuseClient = (client: DfuseClient) => {
   dfuseClient = client
 }
 
-export const initializeDfuseClientFromConfig = (
-  apiKey: string,
-  network: string,
-  authUrl: string,
+export type ClientConfig = {
+  apiKey: string
+  network: string
+  authUrl: string
   secure: boolean
-) => {
+}
+
+export const initializeDfuseClientFromConfig = (clientConfig: ClientConfig) => {
   initializeDfuseClient(
     createDfuseClient({
-      apiKey,
-      network,
-      authUrl,
-      secure,
+      apiKey: clientConfig.apiKey,
+      network: clientConfig.network,
+      authUrl: clientConfig.authUrl,
+      secure: clientConfig.secure,
     })
   )
 }
