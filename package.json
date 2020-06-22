@@ -8,8 +8,16 @@
     "dist/*"
   ],
   "repository": "https://github.com:dfuse-io/dquery.git",
-  "author": "dliuproduction <dliuproduction@gmail.com>",
+  "author": {
+    "name": "dfuse Developers",
+    "email": "dev@dfuse.io",
+    "url": "https://dfuse.io"
+  },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "tsc",
     "prepublish": "yarn build",
