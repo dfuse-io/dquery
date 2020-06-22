@@ -2,7 +2,7 @@
   "name": "dquery",
   "version": "1.0.0",
   "description": "common library for dfuse blockchain explorers",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "git@github.com:dfuse-io/dquery.git",
   "author": "dliuproduction <dliuproduction@gmail.com>",
   "license": "MIT",
