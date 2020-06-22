@@ -2,13 +2,26 @@
   "name": "dquery",
   "version": "1.0.0",
   "description": "common library for dfuse blockchain explorers",
-  "main": "index.ts",
+  "main": "dist/lib/index.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
   "repository": "git@github.com:dfuse-io/dquery.git",
   "author": "dliuproduction <dliuproduction@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@dfuse/client": "^0.3.10",
     "@types/react": "^16.9.38",
-    "react": "^16.13.1"
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "graphql": "^15.1.0",
+    "react": "^16.13.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.5"
   }
 }
