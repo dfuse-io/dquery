@@ -10,13 +10,15 @@ import {
   promiseStateResolved,
 } from "./use-promise"
 
-export function useGraphqlStream<T = any>(
-  document: string | DocumentNode,
-  variables: Record<string, unknown> = {},
-  onData: (results: T) => void,
-  onError: (error: Error[]) => void,
+export function useGraphqlStream<T = any>(params: {
+  document: string | DocumentNode
+  variables: Record<string, unknown>
+  onData: (results: T) => void
+  onError: (errors: Error[]) => void
   onComplete?: () => void
-): PromiseState<Stream, GraphqlResponseError[]> {
+}): PromiseState<Stream, GraphqlResponseError[]> {
+  const { document, variables, onData, onComplete, onError } = params
+
   const [stream, setStream] = useState<PromiseState<Stream, GraphqlResponseError[]>>(
     promiseStatePending()
   )
@@ -45,7 +47,9 @@ export function useGraphqlStream<T = any>(
                 break
             }
           },
-          variables
+          {
+            variables,
+          }
         )
         setStream(promiseStateResolved(stream))
       } catch (error) {
