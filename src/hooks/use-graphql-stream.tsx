@@ -38,7 +38,7 @@ export function useGraphqlStream<T = any>(
                 onData(message.data)
                 break
               case "complete":
-                onComplete()
+                onComplete && onComplete()
                 break
               case "error":
                 onError(message.errors)
