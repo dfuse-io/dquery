@@ -10,8 +10,7 @@ import {
   space,
   typography,
 } from "styled-system"
-
-const whiteSpace = system({ whiteSpace: { property: "whiteSpace" } })
+import { whiteSpace } from "./custom-style-props"
 
 export const Box = styled.div`
   ${layout}

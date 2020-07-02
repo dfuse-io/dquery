@@ -1,9 +1,7 @@
 import * as React from "react"
 import styled from "@emotion/styled"
 import { system, display, layout, typography, fontFamily } from "styled-system"
-
-const whiteSpace = system({ whiteSpace: { property: "whiteSpace" } })
-const wordWrap = system({ wordWrap: { property: "wordWrap" } })
+import { whiteSpace, wordWrap } from "./custom-style-props"
 
 const JsonContainerCode = styled.code`
 ${display}
