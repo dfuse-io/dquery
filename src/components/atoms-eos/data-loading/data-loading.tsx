@@ -1,7 +1,7 @@
 import * as React from "react"
+import styled from "@emotion/styled"
 import { Text } from "../text/text"
 import Box from "../ui-box/ui-box"
-import { styled } from "../../theme"
 import { Spinner } from "../spinner/spinner"
 
 const Loader = styled(Spinner)`

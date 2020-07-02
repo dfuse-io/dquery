@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link } from "react-router-dom"
 import {
   alignSelf,
-  color,
   display,
   fontFamily,
   fontSize as _fontSize,
@@ -12,9 +11,10 @@ import {
   space,
   textAlign as _textAlign,
   borders,
-  width
+  width,
+  color,
 } from "styled-system"
-import { styled } from "../../theme"
+import styled from "@emotion/styled"
 
 export const Text: React.ComponentType<any> = styled.div`
   position: relative;
@@ -39,7 +39,7 @@ export const Text: React.ComponentType<any> = styled.div`
 export const HoverableText: React.ComponentType<any> = styled(Text)`
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.theme.colors.linkHover};
+    ${color}
   }
 `
 
@@ -95,20 +95,20 @@ export const SubTitle: React.ComponentType<any> = styled.h3`
 `
 
 Text.defaultProps = {
-  color: "text"
+  color: "text",
 }
 
 BigTitle.defaultProps = {
-  color: "text"
+  color: "text",
 }
 
 Title.defaultProps = {
-  color: "text"
+  color: "text",
 }
 
 SubTitle.defaultProps = {
   color: "text",
-  my: [2]
+  my: [2],
 }
 
 export interface TextLinkProps {

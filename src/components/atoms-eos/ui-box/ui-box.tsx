@@ -1,3 +1,5 @@
+import * as React from "react"
+import styled from "@emotion/styled"
 import {
   alignItems,
   alignSelf,
@@ -20,8 +22,6 @@ import {
   maxWidth,
   minHeight,
 } from "styled-system"
-import { styled } from "../../theme"
-import * as React from "react"
 // white-space: ${(props) => (props.whiteSpace ? props.whiteSpace : "")};
 //   word-break: ${(props) => (props.wordBreak ? props.wordBreak : "")};
 const Box: React.ComponentType<any> = styled.div`
@@ -57,5 +57,5 @@ export default Box
 
 export const HomeWrapper: React.ComponentType<any> = styled(Box)`
   min-height: 100vh;
-  background-color: ${(props) => props.theme.colors.primary};
+  ${color}
 `

@@ -2,7 +2,7 @@ import * as React from "react"
 import { DataLoading } from "../data-loading/data-loading"
 import { DataError } from "../data-error/data-error"
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { PromiseState } from "../../hooks/use-promise"
+import { PromiseState } from "../../../hooks/use-promise"
 
 type Props = { promise: PromiseState<any>; loadingMessage?: string; children?: React.ReactNode }
 
