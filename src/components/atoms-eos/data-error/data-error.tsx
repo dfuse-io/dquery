@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Text } from "../text/text"
+import { Text } from "../../atoms"
 
 const errorToMessage = (error: any): string | undefined => {
   if (error == null) {

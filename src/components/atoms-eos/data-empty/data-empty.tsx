@@ -1,5 +1,5 @@
 import * as React from "react"
-import { SubTitle } from "../text/text"
+import { SubTitle } from "../../atoms"
 import Box from "../ui-box/ui-box"
 
 type Props = {

@@ -1,6 +1,6 @@
 import * as React from "react"
 import styled from "@emotion/styled"
-import { Text } from "../text/text"
+import { Text } from "../../atoms"
 import Box from "../ui-box/ui-box"
 import { Spinner } from "../spinner/spinner"
 
