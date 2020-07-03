@@ -1,5 +1,5 @@
 {
-  "name": "@dfuse/explore",
+  "name": "@dfuse/explorer",
   "version": "1.0.0",
   "description": "common library for dfuse blockchain explorers",
   "main": "dist/lib/index.js",
