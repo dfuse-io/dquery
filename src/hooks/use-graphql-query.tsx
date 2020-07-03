@@ -10,8 +10,10 @@ import {
   promiseStateResolved,
 } from "./use-promise"
 
+export type GraphqlQuery = string | DocumentNode
+
 export function useGraphqlQuery<T = any>(
-  document: string | DocumentNode,
+  document: GraphqlQuery,
   variables: Record<string, unknown> = {}
 ): PromiseState<T, GraphqlResponseError[]> {
   const [state, setState] = useState<PromiseState<T, GraphqlResponseError[]>>(promiseStatePending())
