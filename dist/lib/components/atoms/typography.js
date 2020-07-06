@@ -188,7 +188,7 @@ export const HoverableTextNoHighlight = styled(Text) `
     cursor: pointer;
   }
 `;
-export const EllipsisText = styled(Text) `
+export const Ellipsis = styled(Text) `
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -285,7 +285,7 @@ export const ExternalTextLinkLight = (_a) => {
 export class KeyValueFormatEllipsis extends React.Component {
     render() {
         const regex = /(\S*: )/g;
-        return (React.createElement(EllipsisText, { fontFamily: "Roboto Condensed", fontSize: [1] }, this.props.content.split(regex).map((value, index) => {
+        return (React.createElement(Ellipsis, { fontFamily: "Roboto Condensed", fontSize: [1] }, this.props.content.split(regex).map((value, index) => {
             if (regex.test(value)) {
                 return React.createElement(CondensedBold, { key: index }, value);
             }

@@ -42,7 +42,7 @@ export declare const Text: React.ComponentType<any>;
 export declare type TextProps = React.ComponentProps<typeof Text>;
 export declare const HoverableText: React.ComponentType<any>;
 export declare const HoverableTextNoHighlight: React.ComponentType<any>;
-export declare const EllipsisText: React.ComponentType<any>;
+export declare const Ellipsis: React.ComponentType<any>;
 export declare const CondensedBold: React.ComponentType<any>;
 export declare const BigTitle: React.ComponentType<any>;
 export declare const Title: React.ComponentType<any>;

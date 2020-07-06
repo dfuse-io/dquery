@@ -9,5 +9,6 @@ export * from "./components/atoms-eth";
 export * from "./components/atoms";
 // Helpers
 export * from "./helpers/sqe";
+export * from "./helpers/ellipsis";
 // Theme
 export * from "./theme";

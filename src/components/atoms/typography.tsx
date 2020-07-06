@@ -282,7 +282,7 @@ export const HoverableTextNoHighlight: React.ComponentType<any> = styled(Text)`
   }
 `
 
-export const EllipsisText: React.ComponentType<any> = styled(Text)`
+export const Ellipsis: React.ComponentType<any> = styled(Text)`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -439,7 +439,7 @@ export class KeyValueFormatEllipsis extends React.Component<{ content: string }>
   render() {
     const regex: RegExp = /(\S*: )/g
     return (
-      <EllipsisText fontFamily="Roboto Condensed" fontSize={[1]}>
+      <Ellipsis fontFamily="Roboto Condensed" fontSize={[1]}>
         {this.props.content.split(regex).map((value: string, index: number) => {
           if (regex.test(value)) {
             return <CondensedBold key={index}>{value}</CondensedBold>
@@ -447,7 +447,7 @@ export class KeyValueFormatEllipsis extends React.Component<{ content: string }>
 
           return value
         })}
-      </EllipsisText>
+      </Ellipsis>
     )
   }
 }

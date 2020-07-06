@@ -5,4 +5,5 @@ export * from "./client/dfuse";
 export * from "./components/atoms-eth";
 export * from "./components/atoms";
 export * from "./helpers/sqe";
+export * from "./helpers/ellipsis";
 export * from "./theme";
