@@ -3,7 +3,7 @@ import { Cell } from "../atoms/cell"
 import { ellipsis } from "../../helpers/ellipsis"
 import { Text } from "../atoms/typography"
 
-import { styled, colors } from "../../theme"
+import { styled } from "../../theme"
 
 const Container = styled(Cell)`
   align-self: center;
@@ -15,7 +15,7 @@ const InfoText = styled(Text)`
   font-family: "'Roboto Condensed', sans-serif";
   font-size: 14px;
   padding: 0 16px 0 8px;
-  color: ${colors.black};
+  color: black;
 `
 
 interface Props {

@@ -1,15 +1,16 @@
 import * as React from "react";
 import { Box } from "../atoms/box";
 import { Cell } from "../atoms/cell";
-import { MonospaceText } from "../atoms/typography";
-import { PillWrapper, PillContainer, PillContainerDetails, PillExpandedContainer, PillHeaderText, PillInfoContainer, PillOverviewRow, PillClickable, HoverablePillContainer, AnimatedPillContainer, PillLogoContainer, PillLogo, } from "./pill-elements";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus } from "@fortawesome/free-solid-svg-icons/faMinus";
+import { faPlus } from "@fortawesome/free-solid-svg-icons/faPlus";
+import Tooltip from "antd/es/tooltip";
+import { PillWrapper, PillContainer, PillContainerDetails, PillExpandedContainer, PillHeaderText, PillInfoContainer, PillOverviewRow, PillClickable, AnimatedPillContainer, PillLogoContainer, PillLogo, PillWithRigthInfo, PillFailedIcon, } from "./pill-elements";
 export class Pill extends React.Component {
-    constructor() {
-        super(...arguments);
-        this.state = {
-            isOpen: false,
+    constructor(props) {
+        super(props);
+        this.openWebsiteLink = () => {
+            window.open(this.props.logo.website, "_blank");
         };
         this.toggleIsOpen = () => {
             if (this.props.disabled) {
@@ -17,64 +18,49 @@ export class Pill extends React.Component {
             }
             this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
         };
-        this.renderTitle = () => {
-            if (!this.props.title) {
-                return (React.createElement(Box, { px: "2px", bg: this.props.colorVariant }, "\u00A0"));
-            }
-            let WrapperComponent = PillClickable;
-            if (this.props.disabled) {
-                WrapperComponent = Box;
-            }
-            return (React.createElement(WrapperComponent, { onClick: this.toggleIsOpen, bg: this.props.colorVariant },
-                React.createElement(MonospaceText, { alignSelf: "center", px: [2], color: "text", fontSize: [1] }, this.props.title)));
+        this.state = {
+            isOpen: false,
         };
     }
     renderOverviewRow() {
-        return (React.createElement(PillOverviewRow, { bg: this.props.highlighted ? "lightyellow" : "#ffffff", minHeight: "26px" },
-            this.renderTitle(),
+        return (React.createElement(PillOverviewRow, { bg: this.props.highlighted ? "lightyellow" : "white", minHeight: "26px" },
+            this.props.leftPill,
             this.props.content,
-            this.props.disabled ? null : (React.createElement(PillClickable, { onClick: this.toggleIsOpen, bg: "grey5", color: "white", px: "12px", alignItems: ["center"], display: ["flex"] },
+            this.props.disabled ? null : (React.createElement(PillClickable, { px: "12px", alignItems: "center" },
                 React.createElement(FontAwesomeIcon, { size: "sm", icon: this.state.isOpen ? faMinus : faPlus })))));
     }
-    renderInfoRow() {
-        return (React.createElement(PillInfoContainer, null,
-            React.createElement(Cell, { p: [3] }, this.props.renderInfo())));
-    }
-    renderRawRow() {
-        return (React.createElement(PillExpandedContainer, { bg: "#FFFFFF" }, this.props.renderExpandedContent()));
-    }
     renderHeader(text, color, title) {
-        let WrapperComponent = PillClickable;
-        if (this.props.disabled) {
-            WrapperComponent = Box;
-        }
-        return (React.createElement(WrapperComponent, { onClick: this.toggleIsOpen, bg: color, alignItems: "center", justifyConten: "center" },
-            React.createElement(PillHeaderText, { title: title, pl: this.props.logo ? "35px" : "10px", pr: "7px", color: "traceAccountText", fontSize: [1] }, text)));
-    }
-    openWebsiteLink() {
-        window.open(this.props.logo.website, "_blank");
+        const WrapperComponent = this.props.disabled ? Box : PillClickable;
+        return (React.createElement(WrapperComponent, { bg: color, alignItems: "center", justifyContent: "center" },
+            React.createElement(PillHeaderText, { title: title, pl: this.props.logo ? "35px" : "16px", pr: "15px", color: this.props.headerColor || "white", fontSize: "12px" }, text)));
     }
     renderLogo() {
         if (this.props.logo) {
             return (React.createElement(PillLogoContainer, null,
-                React.createElement(PillLogo, { onClick: () => this.openWebsiteLink() },
-                    React.createElement("img", { width: "100%", src: this.props.logo.path, alt: "" }))));
+                React.createElement(PillLogo, { onClick: this.openWebsiteLink },
+                    React.createElement("img", { width: "100%", alt: this.props.logo.website, src: this.props.logo.path }))));
         }
         return null;
     }
     render() {
-        let PillContainerComponent = HoverablePillContainer;
-        if (this.props.disabled) {
-            PillContainerComponent = PillContainer;
+        const { isOpen } = this.state;
+        const infoSection = this.props.renderInfo();
+        let infoPadding = "15px";
+        if (infoSection == null) {
+            infoPadding = "0";
         }
-        return (React.createElement(PillWrapper, { width: "100%", display: "block", clear: "both", my: ["5px"] },
-            this.renderLogo(),
-            React.createElement(PillContainerComponent, { cursor: this.props.disabled ? "default" : "pointer", overflow: "hidden", gridTemplateColumns: "auto 1fr" },
-                this.renderHeader(this.props.headerText, this.props.colorVariantHeader, this.props.headerHoverTitle),
-                this.renderOverviewRow()),
-            React.createElement(AnimatedPillContainer, { pl: "31px", pr: "35px", maxHeight: this.state.isOpen ? "3000px" : "0px" },
-                React.createElement(PillContainerDetails, null,
-                    this.renderInfoRow(),
-                    this.renderRawRow()))));
+        return (React.createElement(PillWithRigthInfo, null,
+            this.props.failed ? (React.createElement(Tooltip, { placement: "left", mouseEnterDelay: 0.01, mouseLeaveDelay: 0.15, title: this.props.failureMessage || "Unknown error" },
+                React.createElement(PillFailedIcon, { "data-tip": true }, "?"))) : (React.createElement("div", null)),
+            React.createElement(PillWrapper, { width: "100%", display: "block", clear: "both", my: "5px" },
+                React.createElement(PillContainer, { cursor: this.props.disabled ? "default" : "pointer", failed: this.props.failed, overflow: "hidden", onClick: this.props.disabled ? () => { } : this.toggleIsOpen, gridTemplateColumns: "auto 1fr" },
+                    this.renderLogo(),
+                    this.renderHeader(this.props.headerText, this.props.headerBgColor || "#0c243b", this.props.headerHoverText || ""),
+                    this.renderOverviewRow()),
+                React.createElement(AnimatedPillContainer, { pl: "31px", pr: "35px", isOpen: isOpen, maxHeight: isOpen ? "3000px" : "0px" },
+                    React.createElement(PillContainerDetails, null,
+                        React.createElement(PillInfoContainer, { withBorderBottom: infoSection != null },
+                            React.createElement(Cell, { p: infoPadding }, infoSection)),
+                        React.createElement(PillExpandedContainer, { bg: "white" }, this.props.renderExpandedContent()))))));
     }
 }

@@ -1,24 +1,23 @@
-import * as React from "react"
+import { styled } from "../../theme"
 import { color, borderColor } from "styled-system"
 import { Text } from "../atoms/typography"
 import { Cell } from "../atoms/cell"
 import { Grid } from "../atoms/grid"
-import { styled } from "../../theme"
 import { Box } from "../atoms/box"
 
-export const PillClickable: React.ComponentType<any> = styled(Box)`
+export const PillClickable = styled(Box)`
   &:hover {
     cursor: pointer;
   }
 `
 
-export const PillWrapper: React.ComponentType<any> = styled(Cell)`
+export const PillWrapper = styled(Cell)`
   min-width: 680px;
   height: auto;
   overflow: hidden;
 `
 
-export const PillContainer: React.ComponentType<any> = styled(Grid)`
+export const PillContainer = styled(Grid)`
   &:hover {
     border: 1px solid #474793;
     ${borderColor}
@@ -28,9 +27,9 @@ export const PillContainer: React.ComponentType<any> = styled(Grid)`
   border: 1px solid #d0d2d3;
 `
 
-export const HoverablePillContainer: React.ComponentType<any> = styled(PillContainer)``
+export const HoverablePillContainer = styled(PillContainer)``
 
-export const PillContainerDetails: React.ComponentType<any> = styled(Cell)`
+export const PillContainerDetails = styled(Cell)`
   border-left: 1px solid #d0d2d3;
   border-right: 1px solid #d0d2d3;
   border-bottom: 1px solid #d0d2d3;
@@ -38,20 +37,20 @@ export const PillContainerDetails: React.ComponentType<any> = styled(Cell)`
   white-space: normal;
 `
 
-export const PillOverviewRow: React.ComponentType<any> = styled(Grid)`
+export const PillOverviewRow = styled(Grid)`
   grid-auto-flow: column;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-auto-columns: max-content auto;
 `
 
-export const PillInfoContainer: React.ComponentType<any> = styled(Cell)`
+export const PillInfoContainer = styled(Cell)`
   background-color: white;
   font-size: 14px;
   font-family: "Roboto Mono", monospace;
 `
 
-export const PillExpandedContainer: React.ComponentType<any> = styled(Grid)`
+export const PillExpandedContainer = styled(Grid)`
   border-top: 1px solid #d0d2d3;
   grid-template-columns: max-content auto;
   width: 100%;
@@ -59,12 +58,12 @@ export const PillExpandedContainer: React.ComponentType<any> = styled(Grid)`
   overflow-x: auto;
 `
 
-export const AnimatedPillContainer: React.ComponentType<any> = styled(Cell)`
+export const AnimatedPillContainer = styled(Cell)`
   transition: max-height 0.3s;
   transition-timing-function: ease-in-out;
 `
 
-export const PillExpandButton: React.ComponentType<any> = styled.button`
+export const PillExpandButton = styled.button`
   background-color: #eaeef2;
   border: none;
   outline: none;
@@ -81,11 +80,11 @@ export const PillExpandButton: React.ComponentType<any> = styled.button`
   ${color}
 `
 
-export const PillHeaderText: React.ComponentType<any> = styled(Text)`
+export const PillHeaderText = styled(Text)`
   font-family: "Roboto Mono", monospace;
 `
 
-export const PillLogoContainer: React.ComponentType<any> = styled(Cell)`
+export const PillLogoContainer = styled(Cell)`
   border: 1px solid #8d939a;
   width: 28px;
   height: 28px;
@@ -98,8 +97,32 @@ export const PillLogoContainer: React.ComponentType<any> = styled(Cell)`
   background: #fff;
 `
 
-export const PillLogo: React.ComponentType<any> = styled(Cell)`
+export const PillLogo = styled(Cell)`
   &:hover {
     cursor: pointer;
   }
+`
+
+export const PillWithRigthInfo = styled(Grid)`
+  /* grid-template-columns: 1fr; */
+  grid-template-columns: 20px 1fr;
+  grid-column-gap: 5px;
+  width: 100%;
+  justify-items: center;
+  align-items: self-start;
+`
+
+export const PillFailedIcon = styled(Cell)`
+  width: 20px;
+  height: 20px;
+  background: #ff4660;
+  display: flex;
+
+  border-radius: 10px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  top: 10px;
 `

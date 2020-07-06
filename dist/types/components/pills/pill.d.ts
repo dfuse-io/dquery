@@ -1,17 +1,27 @@
 import * as React from "react";
 interface Props {
-    headerHoverTitle: string;
-    renderInfo: () => JSX.Element[] | JSX.Element | null;
-    disabled?: boolean;
-    colorVariant: string;
-    colorVariantHeader: string;
-    headerText: JSX.Element | string;
+    headerHoverTitle?: string;
     title?: JSX.Element | string;
     info?: string;
-    content: JSX.Element[] | JSX.Element | string;
-    renderExpandedContent: () => JSX.Element[] | JSX.Element | null;
+    disabled?: boolean;
+    failed?: boolean;
+    failureMessage?: string;
     highlighted?: boolean;
     logo?: PillLogoProps;
+    headerText: JSX.Element | string;
+    headerColor?: string;
+    headerBgColor?: string;
+    headerHoverText?: string;
+    isSubCall?: boolean;
+    percentage?: number;
+    selfGas?: string | number;
+    cumulativeGas?: string | number;
+    titleColor?: string;
+    titleBgColor?: string;
+    leftPill: JSX.Element[] | JSX.Element | null;
+    renderInfo: () => JSX.Element[] | JSX.Element | null;
+    content: JSX.Element[] | JSX.Element | string | null;
+    renderExpandedContent: () => JSX.Element[] | JSX.Element | null;
 }
 export interface PillLogoProps {
     path: string;
@@ -21,14 +31,11 @@ interface State {
     isOpen: boolean;
 }
 export declare class Pill extends React.Component<Props, State> {
-    state: State;
+    constructor(props: Props);
+    openWebsiteLink: () => void;
     toggleIsOpen: () => void;
-    renderTitle: () => JSX.Element;
     renderOverviewRow(): JSX.Element;
-    renderInfoRow(): JSX.Element;
-    renderRawRow(): JSX.Element;
     renderHeader(text: JSX.Element | string, color: string, title: string): JSX.Element;
-    openWebsiteLink(): void;
     renderLogo(): JSX.Element | null;
     render(): JSX.Element;
 }

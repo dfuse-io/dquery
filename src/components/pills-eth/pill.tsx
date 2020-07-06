@@ -1,12 +1,10 @@
 import * as React from "react"
 import { Box } from "../atoms/box"
 import { Cell } from "../atoms/cell"
-import { Text } from "../atoms/typography"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMinus } from "@fortawesome/free-solid-svg-icons/faMinus"
 import { faPlus } from "@fortawesome/free-solid-svg-icons/faPlus"
 import Tooltip from "antd/es/tooltip"
-import Progress from "antd/es/progress"
 import {
   PillWrapper,
   PillContainer,
@@ -23,10 +21,12 @@ import {
   PillFailedIcon,
 } from "./pill-elements"
 
-import { colors, colorStyleValue } from "../../theme"
-import { ReactComponent as IconGas } from "../svg/icon-gas.svg"
-
 interface Props {
+  headerHoverTitle: string
+  colorVariant: string
+  colorVariantHeader: string
+  title?: JSX.Element | string
+  info?: string
   disabled?: boolean
   failed?: boolean
   failureMessage?: string
@@ -48,6 +48,9 @@ interface Props {
   cumulativeGas?: string | number
   titleColor?: string
   titleBgColor?: string
+
+  // Leftmost colored "title" part of pill
+  leftPill: JSX.Element[] | JSX.Element | null
 
   renderInfo: () => JSX.Element[] | JSX.Element | null
 
@@ -84,76 +87,13 @@ export class Pill extends React.Component<Props, State> {
     this.setState((prevState: State) => ({ isOpen: !prevState.isOpen }))
   }
 
-  renderTitle() {
-    const { selfGas, cumulativeGas, percentage = 0, isSubCall } = this.props
-    const titleBgColor = this.props.titleBgColor || colors.primary
-    const percentageToDisplay = percentage || 0
-
-    const TitleWrapper = isSubCall ? Tooltip : React.Fragment
-    const titleColor = this.props.titleColor || "white"
-    return (
-      <TitleWrapper
-        placement="left"
-        mouseEnterDelay={0.01}
-        mouseLeaveDelay={0.15}
-        title={
-          <>
-            <Text variant="monospace" color={titleColor} alignSelf="center">
-              {`CUM: ${cumulativeGas}`}
-            </Text>
-            <br />
-            <Text variant="monospace" color={titleColor} alignSelf="center">
-              {`SELF: ${selfGas}`}
-            </Text>
-            <br />
-            <Text
-              variant="monospace"
-              color={titleColor}
-              alignSelf="center"
-              style={{ display: "flex" }}
-            >
-              {`${percentageToDisplay.toFixed(2)}%`}
-              <IconGas
-                style={{ width: "1em", alignSelf: "center", margin: "0 8px" }}
-                fill={colorStyleValue(titleColor)}
-              />
-            </Text>
-          </>
-        }
-      >
-        <Box bg={colorStyleValue(titleBgColor)} color={colorStyleValue(titleColor)}>
-          {isSubCall ? (
-            <div style={{ width: "60px", margin: "0 0 0 8px" }}>
-              <Progress
-                className="progress-bar-pill"
-                percent={percentageToDisplay}
-                size="small"
-                showInfo={false}
-                strokeWidth={8}
-                strokeLinecap="square"
-              />
-            </div>
-          ) : (
-            <Text variant="monospace" color={titleColor} alignSelf="center" pl="8px">
-              {cumulativeGas}
-            </Text>
-          )}
-          <IconGas
-            style={{ width: "1em", alignSelf: "center", margin: "0 8px" }}
-            fill={colorStyleValue(titleColor)}
-          />
-        </Box>
-      </TitleWrapper>
-    )
-  }
-
   renderOverviewRow() {
     return (
       <PillOverviewRow bg={this.props.highlighted ? "lightyellow" : "white"} minHeight="26px">
-        {this.renderTitle()}
+        {this.props.leftPill}
         {this.props.content}
         {this.props.disabled ? null : (
-          <PillClickable bg={colors.ternary400} color="white" px="12px" alignItems="center">
+          <PillClickable px="12px" alignItems="center">
             <FontAwesomeIcon size="sm" icon={this.state.isOpen ? faMinus : faPlus} />
           </PillClickable>
         )}
@@ -162,10 +102,10 @@ export class Pill extends React.Component<Props, State> {
   }
 
   renderHeader(text: JSX.Element | string, color: string, title: string) {
-    const WrapperComponent = PillClickable
-    // if (this.props.disabled) {
-    //   WrapperComponent = Box
-    // }
+    let WrapperComponent = Box
+    if (!this.props.disabled) {
+      WrapperComponent = PillClickable
+    }
 
     return (
       <WrapperComponent bg={color} alignItems="center" justifyContent="center">
@@ -229,7 +169,7 @@ export class Pill extends React.Component<Props, State> {
             {this.renderLogo()}
             {this.renderHeader(
               this.props.headerText,
-              this.props.headerBgColor || colors.ternary1000,
+              this.props.headerBgColor || "#0c243b",
               this.props.headerHoverText || ""
             )}
             {this.renderOverviewRow()}

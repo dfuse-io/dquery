@@ -1,8 +1,8 @@
+import { styled } from "../../theme";
 import { color, borderColor } from "styled-system";
 import { Text } from "../atoms/typography";
 import { Cell } from "../atoms/cell";
 import { Grid } from "../atoms/grid";
-import { styled } from "../../theme";
 import { Box } from "../atoms/box";
 export const PillClickable = styled(Box) `
   &:hover {
@@ -88,4 +88,26 @@ export const PillLogo = styled(Cell) `
   &:hover {
     cursor: pointer;
   }
+`;
+export const PillWithRigthInfo = styled(Grid) `
+  /* grid-template-columns: 1fr; */
+  grid-template-columns: 20px 1fr;
+  grid-column-gap: 5px;
+  width: 100%;
+  justify-items: center;
+  align-items: self-start;
+`;
+export const PillFailedIcon = styled(Cell) `
+  width: 20px;
+  height: 20px;
+  background: #ff4660;
+  display: flex;
+
+  border-radius: 10px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  top: 10px;
 `;

@@ -1,14 +1,18 @@
+import { color } from "styled-system"
 import { Box } from "../atoms/box"
 import { Cell } from "../atoms/cell"
 import { Grid } from "../atoms/grid"
 import { Text } from "../atoms/typography"
 
-import { styled, colors } from "../../theme"
+import { styled } from "../../theme"
 
 export const PillClickable = styled(Box)`
   &:hover {
     cursor: pointer;
   }
+  background-color: grey;
+  color: white;
+  ${color}
 `
 
 export const PillWrapper = styled(Cell)`
@@ -19,18 +23,18 @@ export const PillWrapper = styled(Cell)`
 `
 
 const pillContainerNormal = `
-  border: 1px solid ${colors.ternary400};
+  border: 1px solid #bbc7d3;
 
   &:hover {
-    border: 1px solid ${colors.ternary1000};
+    border: 1px solid #0c243b;
   }
 `
 
 const pillContainerFailed = `
-  border: 2px solid ${colors.secondary1000};
+  border: 2px solid #0f2e4d;
 
   &:hover {
-    border: 2px solid ${colors.secondary1200};
+    border: 2px solid #081929;
   }
 
   &:after {
@@ -84,9 +88,9 @@ export const PillFailedIcon = styled(Cell)`
 `
 
 export const PillContainerDetails = styled(Cell)`
-  border-left: 1px solid ${colors.ternary400};
-  border-right: 1px solid ${colors.ternary400};
-  border-bottom: 1px solid ${colors.ternary400};
+  border-left: 1px solid #bbc7d3;
+  border-right: 1px solid #bbc7d3;
+  border-bottom: 1px solid #bbc7d3;
   word-break: break-all;
   white-space: normal;
 `
@@ -103,7 +107,7 @@ export const PillInfoContainer = styled(Cell)<{ withBorderBottom?: boolean }>`
   font-size: 14px;
   font-family: "Roboto Mono", monospace;
 
-  ${(props) => (props.withBorderBottom ? `border-bottom: 1px solid ${colors.ternary400};` : "")}
+  ${(props) => (props.withBorderBottom ? `border-bottom: 1px solid #bbc7d3;` : "")}
 `
 
 export const PillExpandedContainer = styled(Grid)`
@@ -120,11 +124,11 @@ export const AnimatedPillContainer = styled(Cell)<{ isOpen: boolean }>`
 `
 
 export const PillExpandButton = styled.button`
-  background-color: ${colors.ternary200};
+  background-color: #ebeeef;
   border: none;
   outline: none;
   cursor: pointer;
-  color: ${colors.black};
+  color: black;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
