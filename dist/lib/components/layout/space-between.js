@@ -1,6 +1,5 @@
-import { styled, MEDIA_QUERIES } from "../../../theme"
-
-export const SpaceBetween = styled.div`
+import { styled, MEDIA_QUERIES } from "../../theme";
+export const SpaceBetween = styled.div `
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -22,4 +21,4 @@ export const SpaceBetween = styled.div`
       width: 100%;
     }
   }
-`
+`;

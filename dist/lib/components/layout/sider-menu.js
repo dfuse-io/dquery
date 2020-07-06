@@ -1,7 +1,6 @@
-import { styled } from "../../../theme"
-import { color } from "styled-system"
-
-export const SiderMenu = styled.div<{ alignCenter?: boolean }>`
+import { styled } from "../../theme";
+import { color } from "styled-system";
+export const SiderMenu = styled.div `
   display: flex;
   flex-direction: row;
   max-width: 100%;
@@ -21,8 +20,7 @@ export const SiderMenu = styled.div<{ alignCenter?: boolean }>`
       color: "white";
     }
   }
-`
-
+`;
 SiderMenu.defaultProps = {
-  color: "#bbc7d3",
-}
+    color: "#bbc7d3",
+};

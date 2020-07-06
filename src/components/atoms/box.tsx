@@ -12,7 +12,7 @@ import {
   width,
   fontSize,
 } from "styled-system"
-import { whiteSpace } from "../atoms-eth/custom-style-props"
+import { whiteSpace } from "./custom-style-props"
 
 export const Box = styled.div`
   ${layout}

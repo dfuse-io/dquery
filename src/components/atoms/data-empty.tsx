@@ -1,6 +1,7 @@
 import * as React from "react"
 import * as CSS from "csstype"
-import { SubTitle, Box } from "."
+import { SubTitle } from "./typography"
+import { Box } from "./box"
 
 type Props = {
   text: string

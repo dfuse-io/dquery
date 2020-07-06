@@ -80,3 +80,8 @@ export declare class KeyValueFormatEllipsis extends React.Component<{
 }> {
     render(): JSX.Element;
 }
+export declare const MonospaceTextLink: React.SFC<TextLinkProps>;
+export declare const MonospaceText: React.ComponentType<any>;
+export declare const MonospaceTextWrap: React.ComponentType<any>;
+export declare const WrappingText: React.ComponentType<any>;
+export declare const WrappingMonospaceText: React.ComponentType<any>;

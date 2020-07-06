@@ -293,3 +293,23 @@ export class KeyValueFormatEllipsis extends React.Component {
         })));
     }
 }
+export const MonospaceTextLink = (_a) => {
+    var rest = __rest(_a, []);
+    return (React.createElement(TextLink, Object.assign({}, rest, { fontFamily: "'Roboto Mono', monospace;", lineHeight: "1em" })));
+};
+export const MonospaceText = styled(Text) `
+  font-family: "Roboto Mono", monospace;
+  white-space: nowrap;
+`;
+export const MonospaceTextWrap = styled(Text) `
+  font-family: "Roboto Mono", monospace;
+`;
+export const WrappingText = styled(Text) `
+  overflow: hidden;
+  word-wrap: break-word;
+`;
+export const WrappingMonospaceText = styled(Text) `
+  font-family: "Roboto Mono", monospace;
+  overflow: hidden;
+  word-wrap: break-word;
+`;

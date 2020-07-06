@@ -1,6 +1,6 @@
 import { styled } from "../../theme";
 import { layout, position, flexbox, typography, color, display, flex, space, border, width, fontSize, } from "styled-system";
-import { whiteSpace } from "../atoms-eth/custom-style-props";
+import { whiteSpace } from "./custom-style-props";
 export const Box = styled.div `
   ${layout}
   ${display}

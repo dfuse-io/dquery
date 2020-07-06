@@ -1,4 +1,4 @@
-import { styled } from "../../../theme"
+import { styled } from "../../theme"
 import { display, layout, flexbox } from "styled-system"
 
 export const Sider = styled.div`

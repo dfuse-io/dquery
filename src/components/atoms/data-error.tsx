@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Text } from "."
+import { Text } from "./typography"
 
 const errorToMessage = (error: any): string | undefined => {
   if (error == null) {

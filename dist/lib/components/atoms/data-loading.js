@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled } from "../../theme";
-import { Text, Box } from ".";
+import { Text } from "./typography";
+import { Box } from "./box";
 import { Spinner } from "./spinner";
 const Loader = styled(Spinner) `
   width: 100%;
