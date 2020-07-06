@@ -12,7 +12,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import * as React from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import { alignSelf, display, fontFamily, fontSize as _fontSize, fontWeight, justifySelf, lineHeight, space, textAlign as _textAlign, borders, width, color, } from "styled-system";
+import { alignSelf, display, fontFamily, fontSize as _fontSize, fontWeight, justifySelf, lineHeight, textAlign as _textAlign, borders, width, color, layout, position, space, typography, flex, flexbox, } from "styled-system";
 // TODO: Merge text components
 /* ETHQ */
 const baseStyles = `
@@ -149,9 +149,14 @@ export const H3 = styled.h3 `
   ${(props) => textStyle({ ...props, fontSize: "1.5em" })}
 `;
 /* EOSQ */
+// TODO: implement hoverable prop and replace all custom textStyle
 export const Text = styled.div `
-  position: relative;
-  text-transform: ${(props) => props.textTransform};
+  ${flex}
+  ${flexbox}
+  ${typography}
+  ${space}
+  ${position}
+  ${layout}
   ${display};
   ${_fontSize};
   ${space};
@@ -160,14 +165,18 @@ export const Text = styled.div `
   ${_textAlign};
   ${fontFamily};
   ${alignSelf};
-  text-overflow: ${(props) => props.textOverflow};
   ${justifySelf};
   ${lineHeight};
   ${borders};
   ${width};
+  text-overflow: ${(props) => props.textOverflow};
+  text-transform: ${(props) => props.textTransform};
   white-space: ${(props) => props.whiteSpace};
   word-break: ${(props) => props.wordBreak};
 `;
+Text.defaultProps = {
+    position: "relative",
+};
 export const HoverableText = styled(Text) `
   &:hover {
     cursor: pointer;

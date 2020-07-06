@@ -10,11 +10,16 @@ import {
   fontWeight,
   justifySelf,
   lineHeight,
-  space,
   textAlign as _textAlign,
   borders,
   width,
   color,
+  layout,
+  position,
+  space,
+  typography,
+  flex,
+  flexbox,
 } from "styled-system"
 
 // TODO: Merge text components
@@ -232,10 +237,14 @@ export const H3 = styled.h3<TextStyleProps>`
 `
 
 /* EOSQ */
-
+// TODO: implement hoverable prop and replace all custom textStyle
 export const Text: React.ComponentType<any> = styled.div`
-  position: relative;
-  text-transform: ${(props: any) => props.textTransform};
+  ${flex}
+  ${flexbox}
+  ${typography}
+  ${space}
+  ${position}
+  ${layout}
   ${display};
   ${_fontSize};
   ${space};
@@ -244,14 +253,19 @@ export const Text: React.ComponentType<any> = styled.div`
   ${_textAlign};
   ${fontFamily};
   ${alignSelf};
-  text-overflow: ${(props: any) => props.textOverflow};
   ${justifySelf};
   ${lineHeight};
   ${borders};
   ${width};
+  text-overflow: ${(props: any) => props.textOverflow};
+  text-transform: ${(props: any) => props.textTransform};
   white-space: ${(props: any) => props.whiteSpace};
   word-break: ${(props: any) => props.wordBreak};
 `
+
+Text.defaultProps = {
+  position: "relative",
+}
 
 export type TextProps = React.ComponentProps<typeof Text>
 
