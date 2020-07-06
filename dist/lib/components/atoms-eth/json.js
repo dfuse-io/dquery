@@ -1,6 +1,6 @@
 import * as React from "react";
-import styled from "@emotion/styled";
-import { display, layout, typography, fontFamily } from "styled-system";
+import { styled } from "../../theme";
+import { display, layout, typography, fontFamily, fontSize, } from "styled-system";
 import { whiteSpace, wordWrap } from "./custom-style-props";
 const JsonContainerCode = styled.code `
 ${display}
@@ -18,14 +18,16 @@ JsonContainerCode.defaultProps = {
     overflowX: "hidden",
 };
 const JsonContainerPre = styled.pre `
+${fontSize}
 ${display}
 ${typography}
 ${whiteSpace}
 `;
 JsonContainerPre.defaultProps = {
+    fontSize: "15px",
     whiteSpace: "pre-wrap",
     display: "block",
     overflowX: "hidden",
 };
 export const JsonWrapper = ({ fontSize, children }) => (React.createElement(JsonContainerPre, null,
-    React.createElement(JsonContainerCode, { fontSize: fontSize || "15px" }, children)));
+    React.createElement(JsonContainerCode, { fontSize: fontSize }, children)));

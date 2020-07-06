@@ -1,6 +1,6 @@
 import * as CSS from "csstype"
 import * as React from "react"
-import styled from "@emotion/styled"
+import { styled } from "../../theme"
 import { Link } from "react-router-dom"
 import {
   alignSelf,

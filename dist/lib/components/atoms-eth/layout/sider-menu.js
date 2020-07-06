@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "../../../theme";
 import { color } from "styled-system";
 export const SiderMenu = styled.div `
   display: flex;

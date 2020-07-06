@@ -1,4 +1,4 @@
-export * from "./box"
+export * from "../atoms/box"
 export * from "./card"
 export * from "./grid"
 export * from "./cell"

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "../../theme";
 import { color, layout, display, position, grid, flexbox, typography } from "styled-system";
 import { cursor, float, clear } from "./custom-style-props";
 export const Cell = styled.div `

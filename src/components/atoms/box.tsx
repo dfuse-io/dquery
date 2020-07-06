@@ -1,16 +1,18 @@
-import styled from "@emotion/styled"
+import { styled } from "../../theme"
 import {
-  system,
-  color,
   layout,
-  display,
   position,
   flexbox,
+  typography,
+  color,
+  display,
   flex,
   space,
-  typography,
+  border,
+  width,
+  fontSize,
 } from "styled-system"
-import { whiteSpace } from "./custom-style-props"
+import { whiteSpace } from "../atoms-eth/custom-style-props"
 
 export const Box = styled.div`
   ${layout}
@@ -22,6 +24,14 @@ export const Box = styled.div`
   ${color}
   ${typography}
   ${whiteSpace}
+  ${fontSize}
+  ${display};
+  ${width};
+  ${space};
+  ${border}
+  b {
+    ${fontSize}
+  }
 `
 
 Box.defaultProps = {

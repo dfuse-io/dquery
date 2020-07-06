@@ -10,7 +10,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import * as React from "react";
-import styled from "@emotion/styled";
+import { styled } from "../../theme";
 import { Link } from "react-router-dom";
 import { alignSelf, display, fontFamily, fontSize as _fontSize, fontWeight, justifySelf, lineHeight, textAlign as _textAlign, borders, width, color, layout, position, space, typography, flex, flexbox, } from "styled-system";
 // TODO: Merge text components

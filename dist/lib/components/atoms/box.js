@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { system, color, layout, display, position, flexbox, flex, space, typography, } from "styled-system";
-const whiteSpace = system({ whiteSpace: { property: "whiteSpace" } });
+import { styled } from "../../theme";
+import { layout, position, flexbox, typography, color, display, flex, space, border, width, fontSize, } from "styled-system";
+import { whiteSpace } from "../atoms-eth/custom-style-props";
 export const Box = styled.div `
   ${layout}
   ${display}
@@ -11,6 +11,14 @@ export const Box = styled.div `
   ${color}
   ${typography}
   ${whiteSpace}
+  ${fontSize}
+  ${display};
+  ${width};
+  ${space};
+  ${border}
+  b {
+    ${fontSize}
+  }
 `;
 Box.defaultProps = {
     display: "flex",

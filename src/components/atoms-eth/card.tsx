@@ -1,4 +1,4 @@
-import styled from "@emotion/styled"
+import { styled } from "../../theme"
 import { position, background, border, boxShadow, padding, borderRadius } from "styled-system"
 import { STANDARD_PADDING, STANDARD_SHADOW, MOBILE_PADDING, MEDIA_QUERIES } from "../../theme"
 

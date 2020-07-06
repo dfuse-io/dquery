@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "../../theme";
 import { color, border, boxShadow, layout, typography } from "styled-system";
 import { STANDARD_SHADOW, MEDIA_QUERIES } from "../../theme";
 export const TextInput = styled.input `

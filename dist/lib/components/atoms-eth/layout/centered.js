@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "../../../theme";
 export const Centered = styled.div `
   display: flex;
   align-items: center;

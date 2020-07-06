@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import { color, layout, display, position, flexbox, flex, space, typography, } from "styled-system";
-import { whiteSpace } from "./custom-style-props";
-export const Box = styled.div `
+import { styled } from "../../theme"
+import { color, layout, display, position, flexbox, flex, space, typography } from "styled-system"
+import { whiteSpace } from "./custom-style-props"
+export const Box = styled.div`
   ${layout}
   ${display}
   ${position}
@@ -11,8 +11,8 @@ export const Box = styled.div `
   ${color}
   ${typography}
   ${whiteSpace}
-`;
+`
 Box.defaultProps = {
-    display: "flex",
-    position: "relative",
-};
+  display: "flex",
+  position: "relative",
+}

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "../../../theme";
 export const Cover = styled.div `
   position: absolute;
   top: 0;

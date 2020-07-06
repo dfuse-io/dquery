@@ -1,5 +1,4 @@
-import styled from "@emotion/styled"
-import { MEDIA_QUERIES } from "../../../theme"
+import { styled, MEDIA_QUERIES } from "../../../theme"
 
 export const SpaceBetween = styled.div`
   display: flex;

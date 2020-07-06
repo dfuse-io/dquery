@@ -1,4 +1,4 @@
-import styled from "@emotion/styled"
+import { styled } from "../../theme"
 import { system, color, layout, display, position, grid, flexbox, typography } from "styled-system"
 import { cursor, float, clear } from "./custom-style-props"
 

@@ -1,8 +1,29 @@
-import styled from "@emotion/styled";
-import { alignItems, alignSelf, borderColor, borderRadius, borders, color, display, flex, flexDirection, flexWrap, height, justifyContent, justifySelf, space, textAlign, width, fontSize, minWidth, maxWidth, minHeight, } from "styled-system";
+import { styled } from "../../theme"
+import {
+  alignItems,
+  alignSelf,
+  borderColor,
+  borderRadius,
+  borders,
+  color,
+  display,
+  flex,
+  flexDirection,
+  flexWrap,
+  height,
+  justifyContent,
+  justifySelf,
+  space,
+  textAlign,
+  width,
+  fontSize,
+  minWidth,
+  maxWidth,
+  minHeight,
+} from "styled-system"
 // white-space: ${(props) => (props.whiteSpace ? props.whiteSpace : "")};
 //   word-break: ${(props) => (props.wordBreak ? props.wordBreak : "")};
-const Box = styled.div `
+const Box = styled.div`
   
   display: flex;
   position: relative;
@@ -29,9 +50,9 @@ const Box = styled.div `
   b {
     ${fontSize}
   }
-`;
-export default Box;
-export const HomeWrapper = styled(Box) `
+`
+export default Box
+export const HomeWrapper = styled(Box)`
   min-height: 100vh;
   ${color}
-`;
+`
