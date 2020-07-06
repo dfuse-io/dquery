@@ -23,7 +23,6 @@ import {
 
 interface Props {
   headerHoverTitle?: string
-  title?: JSX.Element | string
   info?: string
   disabled?: boolean
   failed?: boolean
