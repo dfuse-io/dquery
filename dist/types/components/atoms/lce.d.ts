@@ -1,16 +1,16 @@
-import * as React from "react"
-import { DataLoading } from "../data-loading/data-loading"
-import { DataError } from "../data-error/data-error"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { PromiseState } from "../../../hooks/use-promise"
-
-type Props = { promise: PromiseState<any>; loadingMessage?: string; children?: React.ReactNode }
-
+import * as React from "react";
+import { PromiseState } from "../../hooks/use-promise";
+import * as CSS from "csstype";
+declare type Props = {
+    promise: PromiseState<any>;
+    loadingMessage?: string;
+    children?: React.ReactNode;
+    color?: CSS.ColorProperty;
+};
 interface LCEComponent {
-  (props: Props, context?: any): React.ReactElement | null
-  defaultProps?: Partial<Props>
+    (props: Props, context?: any): React.ReactElement | null;
+    defaultProps?: Partial<Props>;
 }
-
 /**
  * A Load Content Error (LCE) base component. This is an highly reusable component taking a promise
  * and processing it correctly showing the state of the promise. The actual `promise` received is a
@@ -24,15 +24,5 @@ interface LCEComponent {
  * When the promise resolves correctly, it simply render the children component which should have
  * access to the `usePromise` returned data.
  */
-export const LCE: LCEComponent = ({ promise, loadingMessage, children }) => {
-  if (promise.state === "pending") {
-    return <DataLoading text={loadingMessage} />
-  }
-
-  if (promise.state === "rejected") {
-    return <DataError error={promise.error} />
-  }
-
-  // We expect the caller to pass a renderable component!
-  return children as any
-}
+export declare const LCE: LCEComponent;
+export {};

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Text } from "../../atoms"
+import { Text } from "."
 
 const errorToMessage = (error: any): string | undefined => {
   if (error == null) {
@@ -10,8 +10,7 @@ const errorToMessage = (error: any): string | undefined => {
     return (error as any[]).map((element) => errorToMessage(element)).join(", ")
   }
 
-  if (typeof error === "object" && error.path != null && error.message) {
-    // FIXME: Format "path!"
+  if (typeof error === "object" && error.path !== null && error.message) {
     return error.message
   }
 

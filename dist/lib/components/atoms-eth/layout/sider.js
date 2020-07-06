@@ -4,7 +4,6 @@ export const Sider = styled.div `
   ${display}
   ${flexbox}
   ${layout}
-  display: flex
 `;
 Sider.defaultProps = {
     display: "flex",

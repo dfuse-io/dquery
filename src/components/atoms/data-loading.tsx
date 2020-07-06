@@ -1,8 +1,8 @@
 import * as React from "react"
 import styled from "@emotion/styled"
-import { Text } from "../../atoms"
-import Box from "../ui-box/ui-box"
-import { Spinner } from "../spinner/spinner"
+import { Text } from "."
+import Box from "../atoms-eos/ui-box/ui-box"
+import { Spinner } from "./spinner"
 
 const Loader = styled(Spinner)`
   width: 100%;
