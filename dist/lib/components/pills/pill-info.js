@@ -1,12 +1,18 @@
 import * as React from "react";
-import { truncateString } from "../../helpers/formatters";
-import { styled } from "../../theme";
-import { Text } from "../atoms/typography";
 import { Cell } from "../atoms/cell";
-const InfoText = styled(Text) `
-  font-family: "'Roboto Condensed', sans-serif";
+import { ellipsis } from "../../helpers/ellipsis";
+import { Text } from "../atoms/typography";
+import { styled } from "../../theme";
+const Container = styled(Cell) `
+  align-self: center;
+  border-left: 1px dotted #aaa;
 `;
-export const PillInfo = ({ info }) => {
-    return (React.createElement(Cell, { alignSelf: ["center"], borderLeft: "1px dotted #aaa" },
-        React.createElement(InfoText, { alignSelf: "center", pl: [2], pr: [3], color: "traceMemoText", fontSize: [2] }, truncateString(info, 50))));
-};
+const InfoText = styled(Text) `
+  align-self: center;
+  font-family: "'Roboto Condensed', sans-serif";
+  font-size: 14px;
+  padding: 0 16px 0 8px;
+  color: black;
+`;
+export const PillInfo = ({ info }) => (React.createElement(Container, null,
+    React.createElement(InfoText, null, ellipsis(info, 50))));

@@ -1,23 +1,29 @@
 import * as React from "react"
-import { truncateString } from "../../helpers/formatters"
-import { styled } from "../../theme"
-import { Text } from "../atoms/typography"
 import { Cell } from "../atoms/cell"
+import { ellipsis } from "../../helpers/ellipsis"
+import { Text } from "../atoms/typography"
 
-const InfoText: React.ComponentType<any> = styled(Text)`
+import { styled } from "../../theme"
+
+const Container = styled(Cell)`
+  align-self: center;
+  border-left: 1px dotted #aaa;
+`
+
+const InfoText = styled(Text)`
+  align-self: center;
   font-family: "'Roboto Condensed', sans-serif";
+  font-size: 14px;
+  padding: 0 16px 0 8px;
+  color: black;
 `
 
 interface Props {
   info: string
 }
 
-export const PillInfo: React.FC<Props> = ({ info }) => {
-  return (
-    <Cell alignSelf={["center"]} borderLeft="1px dotted #aaa">
-      <InfoText alignSelf="center" pl={[2]} pr={[3]} color="traceMemoText" fontSize={[2]}>
-        {truncateString(info, 50)}
-      </InfoText>
-    </Cell>
-  )
-}
+export const PillInfo: React.FC<Props> = ({ info }) => (
+  <Container>
+    <InfoText>{ellipsis(info, 50)}</InfoText>
+  </Container>
+)

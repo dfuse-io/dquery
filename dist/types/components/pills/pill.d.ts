@@ -15,9 +15,8 @@ interface Props {
     percentage?: number;
     selfGas?: string | number;
     cumulativeGas?: string | number;
-    titleColor?: string;
-    titleBgColor?: string;
-    leftPill: JSX.Element[] | JSX.Element | null;
+    pill2: JSX.Element[] | JSX.Element | null;
+    expandButtonColor?: string;
     renderInfo: () => JSX.Element[] | JSX.Element | null;
     content: JSX.Element[] | JSX.Element | string | null;
     renderExpandedContent: () => JSX.Element[] | JSX.Element | null;

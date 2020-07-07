@@ -28,7 +28,6 @@ export * from "./components/pills/detail-line";
 export * from "./components/pills/pill";
 export * from "./components/pills/pill-elements";
 export * from "./components/pills/pill-info";
-export * from "./components/pills/pill-transfer-box";
 export * from "./helpers/sqe";
 export * from "./helpers/ellipsis";
 export * from "./helpers/color-manipulation";

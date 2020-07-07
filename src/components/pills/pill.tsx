@@ -43,11 +43,12 @@ interface Props {
   percentage?: number
   selfGas?: string | number
   cumulativeGas?: string | number
-  titleColor?: string
-  titleBgColor?: string
 
   // Leftmost colored "title" part of pill
-  leftPill: JSX.Element[] | JSX.Element | null
+  pill2: JSX.Element[] | JSX.Element | null
+
+  // Background of expand button
+  expandButtonColor?: string
 
   renderInfo: () => JSX.Element[] | JSX.Element | null
 
@@ -86,11 +87,15 @@ export class Pill extends React.Component<Props, State> {
 
   renderOverviewRow() {
     return (
-      <PillOverviewRow bg={this.props.highlighted ? "lightyellow" : "white"} minHeight="26px">
-        {this.props.leftPill}
+      <PillOverviewRow bg={this.props.highlighted ? "yellow" : "white"} minHeight="26px">
+        {this.props.pill2}
         {this.props.content}
         {this.props.disabled ? null : (
-          <PillClickable px="12px" alignItems="center">
+          <PillClickable
+            bg={this.props.expandButtonColor || "#65656f"}
+            px="12px"
+            alignItems="center"
+          >
             <FontAwesomeIcon size="sm" icon={this.state.isOpen ? faMinus : faPlus} />
           </PillClickable>
         )}
@@ -164,7 +169,7 @@ export class Pill extends React.Component<Props, State> {
             {this.renderLogo()}
             {this.renderHeader(
               this.props.headerText,
-              this.props.headerBgColor || "#0c243b",
+              this.props.headerBgColor || "#65656f",
               this.props.headerHoverText || ""
             )}
             {this.renderOverviewRow()}
