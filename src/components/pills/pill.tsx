@@ -88,7 +88,7 @@ export class Pill extends React.Component<Props, State> {
 
   renderOverviewRow() {
     return (
-      <PillOverviewRow bg={this.props.highlighted ? "yellow" : "white"} minHeight="26px">
+      <PillOverviewRow bg={this.props.highlighted ? "lightyellow" : "white"} minHeight="26px">
         {this.props.pill2}
         {this.props.content}
         {this.props.disabled ? null : (
@@ -164,6 +164,7 @@ export class Pill extends React.Component<Props, State> {
           <div />
         )}
         <PillWrapper width="100%" display="block" clear="both" my="5px">
+          {this.renderLogo()}
           <PillContainer
             cursor={this.props.disabled ? "default" : "pointer"}
             failed={this.props.failed}
@@ -171,7 +172,6 @@ export class Pill extends React.Component<Props, State> {
             onClick={this.props.disabled ? () => {} : this.toggleIsOpen}
             gridTemplateColumns="auto 1fr"
           >
-            {this.renderLogo()}
             {this.renderHeader(
               this.props.headerText,
               this.props.headerBgColor || "grey",
