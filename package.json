@@ -1,7 +1,7 @@
 {
   "name": "@dfuse/explorer",
-  "version": "1.0.0",
-  "description": "common library for dfuse blockchain explorers",
+  "version": "0.0.1",
+  "description": "Common library for dfuse blockchain explorers",
   "main": "dist/lib/index.js",
   "typings": "dist/types/index.d.ts",
   "files": [
