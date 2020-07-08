@@ -23,7 +23,8 @@
     "prebuild": "rimraf dist",
     "prepublishOnly": "yarn build",
     "publish:latest": "yarn publish --public",
-    "publish:next": "yarn publish --public --tag next"
+    "publish:next": "yarn publish --public --tag next",
+    "postversion": "node scripts/gh-push.js"
   },
   "dependencies": {
     "@dfuse/client": "^0.3.10",
