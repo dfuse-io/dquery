@@ -48,6 +48,7 @@ interface Props {
   pill2: JSX.Element[] | JSX.Element | null
 
   // Background of expand button
+  expandButtonBgColor?: string
   expandButtonColor?: string
 
   renderInfo: () => JSX.Element[] | JSX.Element | null
@@ -92,11 +93,15 @@ export class Pill extends React.Component<Props, State> {
         {this.props.content}
         {this.props.disabled ? null : (
           <PillClickable
-            bg={this.props.expandButtonColor || "#65656f"}
+            bg={this.props.expandButtonBgColor || "grey"}
             px="12px"
             alignItems="center"
           >
-            <FontAwesomeIcon size="sm" icon={this.state.isOpen ? faMinus : faPlus} />
+            <FontAwesomeIcon
+              size="sm"
+              color={this.props.expandButtonColor || "white"}
+              icon={this.state.isOpen ? faMinus : faPlus}
+            />
           </PillClickable>
         )}
       </PillOverviewRow>
@@ -169,7 +174,7 @@ export class Pill extends React.Component<Props, State> {
             {this.renderLogo()}
             {this.renderHeader(
               this.props.headerText,
-              this.props.headerBgColor || "#65656f",
+              this.props.headerBgColor || "grey",
               this.props.headerHoverText || ""
             )}
             {this.renderOverviewRow()}

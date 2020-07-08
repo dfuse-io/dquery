@@ -26,8 +26,8 @@ export class Pill extends React.Component {
         return (React.createElement(PillOverviewRow, { bg: this.props.highlighted ? "yellow" : "white", minHeight: "26px" },
             this.props.pill2,
             this.props.content,
-            this.props.disabled ? null : (React.createElement(PillClickable, { bg: this.props.expandButtonColor || "#65656f", px: "12px", alignItems: "center" },
-                React.createElement(FontAwesomeIcon, { size: "sm", icon: this.state.isOpen ? faMinus : faPlus })))));
+            this.props.disabled ? null : (React.createElement(PillClickable, { bg: this.props.expandButtonBgColor || "grey", px: "12px", alignItems: "center" },
+                React.createElement(FontAwesomeIcon, { size: "sm", color: this.props.expandButtonColor || "white", icon: this.state.isOpen ? faMinus : faPlus })))));
     }
     renderHeader(text, color, title) {
         const WrapperComponent = this.props.disabled ? Box : PillClickable;
@@ -55,7 +55,7 @@ export class Pill extends React.Component {
             React.createElement(PillWrapper, { width: "100%", display: "block", clear: "both", my: "5px" },
                 React.createElement(PillContainer, { cursor: this.props.disabled ? "default" : "pointer", failed: this.props.failed, overflow: "hidden", onClick: this.props.disabled ? () => { } : this.toggleIsOpen, gridTemplateColumns: "auto 1fr" },
                     this.renderLogo(),
-                    this.renderHeader(this.props.headerText, this.props.headerBgColor || "#65656f", this.props.headerHoverText || ""),
+                    this.renderHeader(this.props.headerText, this.props.headerBgColor || "grey", this.props.headerHoverText || ""),
                     this.renderOverviewRow()),
                 React.createElement(AnimatedPillContainer, { pl: "31px", pr: "35px", isOpen: isOpen, maxHeight: isOpen ? "3000px" : "0px" },
                     React.createElement(PillContainerDetails, null,
