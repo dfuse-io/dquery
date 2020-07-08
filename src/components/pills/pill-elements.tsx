@@ -4,6 +4,7 @@ import { Text } from "../atoms/typography"
 import { Cell } from "../atoms/cell"
 import { Grid } from "../atoms/grid"
 import { Box } from "../atoms/box"
+import { gridTemplateColumns } from "styled-system"
 
 export const PillClickable = styled(Box)`
   &:hover {
@@ -104,8 +105,8 @@ export const PillLogo = styled(Cell)`
 `
 
 export const PillWithRigthInfo = styled(Grid)`
-  /* grid-template-columns: 1fr; */
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 1fr;
+  ${gridTemplateColumns}
   grid-column-gap: 5px;
   width: 100%;
   justify-items: center;

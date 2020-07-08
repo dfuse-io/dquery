@@ -150,7 +150,7 @@ export class Pill extends React.Component<Props, State> {
     }
 
     return (
-      <PillWithRigthInfo>
+      <PillWithRigthInfo gridTemplateColumns={this.props.failed ? "20px 1fr" : "1fr"}>
         {this.props.failed ? (
           <Tooltip
             placement="left"

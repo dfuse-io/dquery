@@ -49,7 +49,7 @@ export class Pill extends React.Component {
         if (infoSection == null) {
             infoPadding = "0";
         }
-        return (React.createElement(PillWithRigthInfo, null,
+        return (React.createElement(PillWithRigthInfo, { gridTemplateColumns: this.props.failed ? "20px 1fr" : "1fr" },
             this.props.failed ? (React.createElement(Tooltip, { placement: "left", mouseEnterDelay: 0.01, mouseLeaveDelay: 0.15, title: this.props.failureMessage || "Unknown error" },
                 React.createElement(PillFailedIcon, { "data-tip": true }, "?"))) : (React.createElement("div", null)),
             React.createElement(PillWrapper, { width: "100%", display: "block", clear: "both", my: "5px" },

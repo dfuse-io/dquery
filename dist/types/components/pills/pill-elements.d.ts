@@ -104,11 +104,7 @@ export declare const PillWithRigthInfo: import("@emotion/styled-base").StyledCom
     theme?: object | undefined;
 }>, string | number | symbol> & {
     ref?: ((instance: HTMLDivElement | null) => void) | import("react").RefObject<HTMLDivElement> | null | undefined;
-}, Pick<Pick<import("react").PropsWithChildren<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & Pick<any, string | number | symbol> & {
-    theme?: object | undefined;
-}>, string | number | symbol> & {
-    ref?: ((instance: HTMLDivElement | null) => void) | import("react").RefObject<HTMLDivElement> | null | undefined;
-}, string | number | symbol>, object>;
+}, any, object>;
 export declare const PillFailedIcon: import("@emotion/styled-base").StyledComponent<Pick<import("react").PropsWithChildren<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & Pick<any, string | number | symbol> & {
     theme?: object | undefined;
 }>, string | number | symbol> & {

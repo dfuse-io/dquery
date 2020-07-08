@@ -1,5 +1,15 @@
 import { styled } from "../../theme"
-import { system, color, layout, display, position, grid, flexbox, typography } from "styled-system"
+import {
+  system,
+  color,
+  layout,
+  display,
+  position,
+  grid,
+  flexbox,
+  typography,
+  space,
+} from "styled-system"
 import { cursor, float, clear } from "./custom-style-props"
 
 export const Cell = styled.div`
@@ -13,6 +23,7 @@ export const Cell = styled.div`
     ${cursor}
     ${float}
     ${clear}
+    ${space}
 `
 
 Cell.defaultProps = {
