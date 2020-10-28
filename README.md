@@ -24,7 +24,7 @@ yarn link
 7. Use the linked packages in your explorer
 ```
 cd ../../../YOUR_EXPLORER
-yarn link dexplore
+yarn link @dfuse/explorer
 yarn link react
 yarn link react-dom
 ```
