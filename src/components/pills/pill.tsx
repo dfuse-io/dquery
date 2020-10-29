@@ -88,7 +88,7 @@ export class Pill extends React.Component<Props, State> {
 
   renderOverviewRow() {
     return (
-      <PillOverviewRow bg={this.props.highlighted ? "lightyellow" : "white"} minHeight="26px">
+      <PillOverviewRow bg={this.props.failed ? "#FF91A0" : (this.props.highlighted ? "lightyellow" : "white")} minHeight="26px">
         {this.props.pill2}
         {this.props.content}
         {this.props.disabled ? null : (
@@ -148,21 +148,9 @@ export class Pill extends React.Component<Props, State> {
     if (infoSection == null) {
       infoPadding = "0"
     }
-
     return (
-      <PillWithRigthInfo gridTemplateColumns={this.props.failed ? "20px 1fr" : "1fr"}>
-        {this.props.failed ? (
-          <Tooltip
-            placement="left"
-            mouseEnterDelay={0.01}
-            mouseLeaveDelay={0.15}
-            title={this.props.failureMessage || "Unknown error"}
-          >
-            <PillFailedIcon data-tip>?</PillFailedIcon>
-          </Tooltip>
-        ) : (
-          <div />
-        )}
+      <PillWithRigthInfo gridTemplateColumns={"1fr"}>
+        <div />
         <PillWrapper width="100%" display="block" clear="both" my="5px">
           {this.renderLogo()}
           <PillContainer
@@ -172,11 +160,25 @@ export class Pill extends React.Component<Props, State> {
             onClick={this.props.disabled ? () => {} : this.toggleIsOpen}
             gridTemplateColumns="auto 1fr"
           >
-            {this.renderHeader(
-              this.props.headerText,
-              this.props.headerBgColor || "grey",
-              this.props.headerHoverText || ""
+            {this.props.failed && (
+              <Tooltip
+                placement="left"
+                mouseEnterDelay={0.01}
+                mouseLeaveDelay={0.15}
+                title={this.props.failureMessage || "Unknown error"}
+              >
+                {this.renderHeader(
+                  this.props.headerText,
+                  this.props.failed ?  "#FF91A0": (this.props.headerBgColor || "grey"),
+                  this.props.headerHoverText || "asfasf"
+                )}
+              </Tooltip>
             )}
+            {!this.props.failed && this.renderHeader(
+                this.props.headerText,
+                this.props.failed ?  "#FF91A0": (this.props.headerBgColor || "grey"),
+                this.props.headerHoverText || ""
+              )}
             {this.renderOverviewRow()}
           </PillContainer>
           <AnimatedPillContainer

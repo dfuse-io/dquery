@@ -20,12 +20,13 @@ export const PillWrapper = styled(Cell)`
 
 export const PillContainer = styled(Grid)`
   &:hover {
-    border: 1px solid #474793;
+    border: 1px solid ${props => props.failed ? "#ff4660" : "#474793"};
     ${borderColor}
   }
   box-shadow: 0 0 1px 0px white inset, 0 0 1px 0px white;
   border-radius: 28px;
-  border: 1px solid #d0d2d3;
+  border: 1px solid ${props => props.failed ? "#ff4660" : "#d0d2d3"};
+  background-color: ${props => props.failed ? "#FF91A0" : "none"};
 `
 
 export const HoverablePillContainer = styled(PillContainer)``
