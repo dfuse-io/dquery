@@ -170,7 +170,7 @@ export class Pill extends React.Component<Props, State> {
                 {this.renderHeader(
                   this.props.headerText,
                   this.props.failed ?  "#FF91A0": (this.props.headerBgColor || "grey"),
-                  this.props.headerHoverText || "asfasf"
+                  this.props.headerHoverText || ""
                 )}
               </Tooltip>
             )}
