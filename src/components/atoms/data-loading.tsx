@@ -2,9 +2,9 @@ import * as React from "react"
 import { styled } from "../../theme"
 import { Text } from "./typography"
 import { Box } from "./box"
-import { Spinner } from "./spinner"
+import { LoadingOutlined } from "@ant-design/icons"
 
-const Loader = styled(Spinner)`
+const Loader = styled(LoadingOutlined)`
   width: 100%;
 `
 
@@ -40,7 +40,7 @@ export const DataLoading: React.FC<Props> = ({ text, color, children }) => (
     flexDirection="column"
     width={["100%"]}
   >
-    <Loader name="three-bounce" color={color || "#6452b3"} fadeIn="none" />
+    <Loader color={color || "#6452b3"} />
     {renderText(text, color)}
     {children}
   </Box>

@@ -45,8 +45,7 @@
     "moment-duration-format": "^2.3.2",
     "moment-timezone": "^0.5.31",
     "numeral": "^2.0.6",
-    "ramda": "^0.27.0",
-    "react-spinkit": "^3.0.0"
+    "ramda": "^0.27.0"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.28",
