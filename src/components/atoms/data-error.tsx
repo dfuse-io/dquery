@@ -25,6 +25,6 @@ const errorToMessage = (error: any): string | undefined => {
   return `${error}`
 }
 
-export const DataError: React.SFC<{ error?: Error }> = ({ error }) => {
+export const DataError: React.FC<{ error?: Error }> = ({ error }) => {
   return <Text fontSize={[4]}>{errorToMessage(error) || "An unknow error occurred"}</Text>
 }

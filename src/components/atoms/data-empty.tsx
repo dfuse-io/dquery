@@ -8,7 +8,7 @@ type Props = {
   color?: CSS.ColorProperty
 }
 
-export const DataEmpty: React.SFC<Props> = ({ text, color, children }) => (
+export const DataEmpty: React.FC<Props> = ({ text, color, children }) => (
   <Box px={[4]} py={[4]} align="center" justify="center" flexDirection="column" w={["100%"]}>
     <SubTitle color={color || "#6a74de"} fontWeight={["normal"]} fontSize={[3]}>
       {text}

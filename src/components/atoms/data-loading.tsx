@@ -31,7 +31,7 @@ const renderText = (text?: string, color?: string) => {
   )
 }
 
-export const DataLoading: React.SFC<Props> = ({ text, color, children }) => (
+export const DataLoading: React.FC<Props> = ({ text, color, children }) => (
   <Box
     pt={[4]}
     pb={[4]}

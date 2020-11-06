@@ -1,19 +1,11 @@
 import * as React from "react"
 import { styled } from "../../theme"
-import {
-  system,
-  display,
-  layout,
-  typography,
-  fontFamily,
-  fontSize,
-  FontSizeProps,
-} from "styled-system"
+import { display, layout, typography, fontFamily, fontSize } from "styled-system"
 import { whiteSpace, wordWrap } from "./custom-style-props"
 
 const JsonContainerCode = styled.code`
-${display}
-${layout}
+  ${display}
+  ${layout}
 ${typography}
 ${fontFamily}
 ${whiteSpace}
@@ -29,8 +21,8 @@ JsonContainerCode.defaultProps = {
 }
 
 const JsonContainerPre = styled.pre`
-${fontSize}
-${display}
+  ${fontSize}
+  ${display}
 ${typography}
 ${whiteSpace}
 `

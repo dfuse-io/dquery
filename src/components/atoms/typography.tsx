@@ -386,7 +386,7 @@ export const StyledLink: React.ComponentType<any> = styled(Link)`
   ${_fontSize};
 `
 
-export const TextLinkLight: React.SFC<TextLinkProps> = ({ to, children, ...rest }) => {
+export const TextLinkLight: React.FC<TextLinkProps> = ({ to, children, ...rest }) => {
   return (
     <Link to={to}>
       <LinkStyledText color="link2" {...rest}>
@@ -396,7 +396,7 @@ export const TextLinkLight: React.SFC<TextLinkProps> = ({ to, children, ...rest 
   )
 }
 
-export const TextLink: React.SFC<TextLinkProps> = ({ to, children, ...rest }) => {
+export const TextLink: React.FC<TextLinkProps> = ({ to, children, ...rest }) => {
   return (
     <StyledLink fontSize={rest && rest.fontSize ? rest.fontSize : ""} to={to}>
       <LinkStyledText color="link" {...rest}>
@@ -406,10 +406,10 @@ export const TextLink: React.SFC<TextLinkProps> = ({ to, children, ...rest }) =>
   )
 }
 
-export const ExternalTextLink: React.SFC<TextLinkProps> = ({ to, download, children, ...rest }) => {
+export const ExternalTextLink: React.FC<TextLinkProps> = ({ to, download, children, ...rest }) => {
   if (download) {
     return (
-      <a href={to} target="_blank" download={download}>
+      <a href={to} target="_blank" rel="noreferrer" download={download}>
         <LinkStyledText color="link" {...rest}>
           {children}
         </LinkStyledText>
@@ -417,7 +417,7 @@ export const ExternalTextLink: React.SFC<TextLinkProps> = ({ to, download, child
     )
   }
   return (
-    <a href={to} target="_blank" {...download}>
+    <a href={to} target="_blank" rel="noreferrer" {...download}>
       <LinkStyledText color="link" {...rest}>
         {children}
       </LinkStyledText>
@@ -425,9 +425,9 @@ export const ExternalTextLink: React.SFC<TextLinkProps> = ({ to, download, child
   )
 }
 
-export const ExternalTextLinkLight: React.SFC<TextLinkProps> = ({ to, children, ...rest }) => {
+export const ExternalTextLinkLight: React.FC<TextLinkProps> = ({ to, children, ...rest }) => {
   return (
-    <a href={to} target="_blank">
+    <a href={to} target="_blank" rel="noreferrer">
       <LinkStyledText color="link2" {...rest}>
         {children}
       </LinkStyledText>
@@ -452,7 +452,7 @@ export class KeyValueFormatEllipsis extends React.Component<{ content: string }>
   }
 }
 
-export const MonospaceTextLink: React.SFC<TextLinkProps> = ({ ...rest }) => (
+export const MonospaceTextLink: React.FC<TextLinkProps> = ({ ...rest }) => (
   <TextLink {...rest} fontFamily="'Roboto Mono', monospace;" lineHeight="1em" />
 )
 

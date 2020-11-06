@@ -63,6 +63,7 @@ export function useGraphqlStream<T = any>(params: {
         )
       }
     })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stringDocument, JSON.stringify(variables)])
 
   return stream

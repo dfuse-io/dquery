@@ -80,7 +80,7 @@ export const DetailLine: React.FC<Props> = ({
   )
 }
 
-export const DetailLineAuto: React.SFC<Props> = ({ label, color, mb, children }) => {
+export const DetailLineAuto: React.FC<Props> = ({ label, color, mb, children }) => {
   const templateColumns = ["1fr", "auto 3fr"]
 
   return (

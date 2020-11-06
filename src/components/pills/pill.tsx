@@ -18,7 +18,6 @@ import {
   PillLogoContainer,
   PillLogo,
   PillWithRigthInfo,
-  PillFailedIcon,
 } from "./pill-elements"
 
 interface Props {
@@ -88,7 +87,10 @@ export class Pill extends React.Component<Props, State> {
 
   renderOverviewRow() {
     return (
-      <PillOverviewRow bg={this.props.failed ? "#FF91A0" : (this.props.highlighted ? "lightyellow" : "white")} minHeight="26px">
+      <PillOverviewRow
+        bg={this.props.failed ? "#FF91A0" : this.props.highlighted ? "lightyellow" : "white"}
+        minHeight="26px"
+      >
         {this.props.pill2}
         {this.props.content}
         {this.props.disabled ? null : (
@@ -169,14 +171,15 @@ export class Pill extends React.Component<Props, State> {
               >
                 {this.renderHeader(
                   this.props.headerText,
-                  this.props.failed ?  "#FF91A0": (this.props.headerBgColor || "grey"),
+                  this.props.failed ? "#FF91A0" : this.props.headerBgColor || "grey",
                   this.props.headerHoverText || ""
                 )}
               </Tooltip>
             )}
-            {!this.props.failed && this.renderHeader(
+            {!this.props.failed &&
+              this.renderHeader(
                 this.props.headerText,
-                this.props.failed ?  "#FF91A0": (this.props.headerBgColor || "grey"),
+                this.props.failed ? "#FF91A0" : this.props.headerBgColor || "grey",
                 this.props.headerHoverText || ""
               )}
             {this.renderOverviewRow()}
