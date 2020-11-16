@@ -5,6 +5,7 @@ import { Box } from "./box"
 import { LoadingOutlined } from "@ant-design/icons"
 
 const Loader = styled(LoadingOutlined)`
+  font-size: 36px;
   width: 100%;
 `
 
@@ -24,7 +25,7 @@ const renderText = (text?: string, color?: string) => {
       whiteSapce="normal"
       py={[3]}
       fontSize={[3]}
-      color={[color || "#6452b3"]}
+      color={[color || "text"]}
     >
       {text}
     </Text>
@@ -40,7 +41,7 @@ export const DataLoading: React.FC<Props> = ({ text, color, children }) => (
     flexDirection="column"
     width={["100%"]}
   >
-    <Loader color={color || "#6452b3"} />
+    <Loader color={color || "text"} />
     {renderText(text, color)}
     {children}
   </Box>
